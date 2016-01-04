@@ -1,5 +1,5 @@
 {
-  "name": "fake-it",
+  "name": "fakeit",
   "version": "2.0.2",
   "description": "C++ mocking made easy. A simple yet very expressive, headers only library for c++ mocking. ",
   "directories": {
