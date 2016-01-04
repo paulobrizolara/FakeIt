@@ -3,6 +3,12 @@
 #include "fakeit/DefaultFakeit.hpp"
 #include "fakeit/EventHandler.hpp"
 #include "catch.hpp"
+
+
+CATCH_TRANSLATE_EXCEPTION( fakeit::FakeItException& ex ) {
+	return ex.what();
+}
+
 namespace fakeit {
 
     struct VerificationException : public FakeitException {
@@ -96,7 +102,6 @@ public:
 
 };
 
-
 class CatchFakeit: public DefaultFakeit {
 
 	
@@ -120,12 +125,12 @@ public:
 
 	CatchFakeit()
         : _formatter(), _catchAdapter(_formatter) {
-			Catch::getMutableRegistryHub().registerTranslator
-                (new ExceptionTranslator<UnexpectedMethodCallException>());
-			Catch::getMutableRegistryHub().registerTranslator
-                (new ExceptionTranslator<SequenceVerificationException>());
-			Catch::getMutableRegistryHub().registerTranslator
-                (new ExceptionTranslator<NoMoreInvocationsVerificationException>());
+			//Catch::getMutableRegistryHub().registerTranslator
+            //    (new ExceptionTranslator<UnexpectedMethodCallException>());
+			//Catch::getMutableRegistryHub().registerTranslator
+            //    (new ExceptionTranslator<SequenceVerificationException>());
+			//Catch::getMutableRegistryHub().registerTranslator
+            //    (new ExceptionTranslator<NoMoreInvocationsVerificationException>());
 	}
 
 	static CatchFakeit &getInstance() {
